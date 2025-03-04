@@ -27,17 +27,13 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">UNAB</a>
-        </div>
-    </nav>
+
+    @include('layout.navbar')
+
     
     @yield('content')
 
-    <footer class="footer mt-5">
-        <p>&copy; 2025 Universidad Autónoma de Bucaramanga - UNAB</p>
-    </footer>
+    @include('layout.footer')
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
