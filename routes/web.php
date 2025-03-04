@@ -1,24 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', HomeController:: class);
+
+Route::prefix('/products')->group(function(){
+
+    Route::get('', [ProductController::class,'index']);
+    Route::get('/create', [ProductController::class,'create']);
+    Route::get('/{name}/{categoria?}', [ProductController::class,'show']);
+
 });
-
-Route::get('/products/{name}', function ($name) {
-    echo "El producto es $name";
-
-});
-
-Route::get('/products/{name}/{categoria?}', function ($name,$categoria=null) {
-    
-    if($categoria ==null){
-        echo "El producto ES: $name";
-    }else{
-            echo "El producto es $name, y su categoria es $categoria";
-        }
-    }
-
-);
-
