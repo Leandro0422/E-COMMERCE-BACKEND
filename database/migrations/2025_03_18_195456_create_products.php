@@ -17,10 +17,13 @@ return new class extends Migration
             $table->text('description');
             $table->float('price');
             $table->timestamps();
+
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('category');
         });
     }
 
-    /**
+    /**s
      * Reverse the migrations.
      */
     public function down(): void
